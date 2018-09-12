@@ -59,10 +59,10 @@ RUN printf '* *\t* * *\tapp\t%s/usr/local/bin/php /var/www/html/update/cron.php\
 RUN printf '* *\t* * *\tapp\t%s/usr/local/bin/php /var/www/html/bin/magento cron:run\n' >> /etc/crontab
 RUN printf '* *\t* * *\tapp\t%s/usr/local/bin/php /var/www/html/bin/magento setup:cron:run\n#\n' >> /etc/crontab
 
-COPY ./docker/php/conf/www.conf /usr/local/etc/php-fpm.d/
-COPY ./docker/php/conf/php.ini /usr/local/etc/php/
-COPY ./docker/php/conf/php-fpm.conf /usr/local/etc/
-COPY ./docker/php/bin/cronstart /usr/local/bin/
+COPY ./conf/www.conf /usr/local/etc/php-fpm.d/
+COPY ./conf/php.ini /usr/local/etc/php/
+COPY ./conf/php-fpm.conf /usr/local/etc/
+COPY ./bin/cronstart /usr/local/bin/
 
 RUN mkdir /sock
 RUN chown -R app:app /usr/local/etc/php/conf.d /sock
